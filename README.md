@@ -18,7 +18,7 @@ More than 50% of lesions are confirmed through histopathology (histo), the groun
 
 ## 1b) **Success/Evaluation Criteria**
 
-if we pick at random (1 out of 7 diagnostic categories) then we will be correct 14.28% of the time. If we have a model that can predict the diagnostic category 50% or better, than that model will perform at least 4 times better than random chance and that would constitute a successful evaluation criteria.
+if we pick at random (1 out of 7 diagnostic categories) then we will be correct 14.28% of the time. If we have a model that can predict the diagnostic category at a rate of 50% or better, than that model will perform at least 4 times better than random chance and that would constitute a successful evaluation criteria.
 
 # 2. **Data Understanding**
 
