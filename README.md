@@ -1,4 +1,4 @@
-# CancerScreener
+# Cancer Screener
 # 1. **Business** **Understanding**
 
 ## 1a) **Problem Definition**
