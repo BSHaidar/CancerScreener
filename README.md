@@ -1,9 +1,7 @@
-# Skin Cancer Screener
-
-![main img](Figures/main_img.JPG)
-
 # Objective
 Develop a Skin Cancer Screener that can classify 7 diagnostic categories of skin lesions, some are malignat and some are benign.
+
+![main img](Figures/main_img.JPG)
 
 ## **Success/Evaluation Criteria**
 if we pick at random (1 out of 7 diagnostic categories) then we will be correct 14.28% of the time. If we have a model that can predict the diagnostic category at a rate of 50% or better, then that model will perform at least 4 times better then random chance and that would be a relatively successful model.
