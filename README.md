@@ -1,10 +1,9 @@
 # Objective
-Develop a Skin Cancer Screener that can classify 7 diagnostic categories of skin lesions, some are malignat and some are benign.
-
+Develop a Skin Cancer Screener that can classify 7 diagnostic categories of skin lesions.
 ![main img](Figures/main_img.JPG)
 
-## **Success/Evaluation Criteria**
-if we pick at random (1 out of 7 diagnostic categories) then we will be correct 14.28% of the time. If we have a model that can predict the diagnostic category at a rate of 50% or better, then that model will perform at least 4 times better then random chance and that would be a relatively successful model.
+# Success/Evaluation Criteria
+if we pick at random (1 out of 7 diagnostic categories) then we will be correct 14.28% of the time. If we have a model that can predict the diagnostic categories at a rate of 50% or better, then that model will perform at least 4 times better then random chance and that would be a relatively successful model.
 
 # Background
 Skin cancer is the most common form of cancer in the United States with an annual cost of care exceeding $8 billion. With early detection, the 5 year survival rate of the most deadly form, melanoma, can be up to 99%; however, delayed diagnosis causes the survival rate to plummet to 23%.
@@ -31,6 +30,21 @@ More than 50% of lesions are confirmed through histopathology (histo), the groun
 
 ![Confusion matrix for CNN Classifier](Figures/CM_Best_Model.png)
 
+# Process
+The image categories were completely unbalanced. Almost 50% of images pertained to one category, another 20% were distributed between 2 other categories, and the final 30% were spread in the remaining 4 categories. We tried to run our model using various class weights to remedy this imbalance in data but this strategy yielded poor results.
+
+Our dataset was broken down as follows: 64% training, 16% validation, 20% testing. We decided that we needd to augment our training data set. We created a function that would create various images from each of the under represented categories and manipulated like rotate, blurr, shear, etc. so we can balance the data set. Our training data set increased from over 6400 images to over 30000 images.
+
+
+We built 3 Convolutional Neural Networks (CNN) and used transfer learning from 2 other pre-built models. Many iterations of each model and hyperparameter tuning were performed like:
+- Adding/removing layers
+- Batch Normalization
+- Droupout
+_ L2 Reguralization
+- Learning Rate
+- Dilation Rate
+- Learning Rate on Plateau
+- Optimizers: Stochastic Gradient Descent and ADAM
 # 3. **Next Steps**
 ## 3a) **Model Improvement**
 Our best model performed at a precision and recall of 76%. That model has 11 convolutional layers. We believe that in order to make it perform better we need to implement the following:
