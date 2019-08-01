@@ -1,4 +1,8 @@
-# Cancer Screener
+# Skin Cancer Screener
+
+![AC](Figures/app_cancer.jpeg)
+
+
 # 1. **Business Understanding**
 
 ## 1a) **Problem Definition**
@@ -39,12 +43,12 @@ if we pick at random (1 out of 7 diagnostic categories) then we will be correct 
 
 # 3. **Next Steps**
 ## 3a) **Model Improvement**
-Our best model performed at a precision and recall of 76%. That model has 11 convolutional layers. We believe that in order to make it perform better it needs four things:
+Our best model performed at a precision and recall of 76%. That model has 11 convolutional layers. We believe that in order to make it perform better we need to implement the following:
 
--  1. A lot more images for training
--  2. Modifying the model to include more convolution layers 
--  3. Experimenenting with hyperparameters such as: adaptable learning rates, Dropout, and L2 regularization
--  4. Develop an app for both IOS and Android: This will allow us to get users to submit the pictures of their skin lesions and will give our platform a continual stream of images to further train our model and refine it. Additionally, it will give the users a feedback whether they need to consult with a doctor or not.
+-  A lot more images for training
+-  Modifying the model to include more convolution layers 
+-  Experimenenting with hyperparameters such as: adaptable learning rates, Dropout, and L2 regularization
+-  Develop an app for both IOS and Android: This will allow us to get users to submit the pictures of their skin lesions and will give our platform a continual stream of images to further train our model and refine it. Additionally, it will give the users a feedback whether they need to consult with a doctor or not.
 
 ## 3b) **Project Roadmap**
 Obviously, beyond the training and model tweaking we need to have an infrastructure that can support images at scale and that is responsive. To that end, we will be using Amazon Web Services (AWS) to develop this architecture. When a user takes a picture in their app of their skin lesion, this image will be saved on an S3 bucket which will trigger a an AWS Lambda action. Lambda will invoke our convolutional neural network (CNN) which will be available as an end point on AWS Sagemaker. Once the model runs and processes the images, the result will be stored in another S3 bucket that will trigger another lambda event, this time a message back to the user in their app, detailing whether they should seek medical attention with a degree of confidence.
