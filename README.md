@@ -25,12 +25,20 @@ if we pick at random (1 out of 7 diagnostic categories) then we will be correct 
 ## 2a) **Public Data**
 [The HAM10000 dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T) is a large collection of multi-source dermatoscopic images of common pigmented skin lesions
 
-## 2b) Title
-
 
 # 3. **Next Steps**
 ## 3a) **Model Improvement**
-Project "next steps" include potential ideas to improve the model through feature engineering, parameter tuning, etc.
-Product Roadmap
+Our best model performed at a precision and recall of 76%. That model has 11 convolutional layers. We believe that in order to make it perform better it needs four things:
+
+-  1. A lot more images for training
+-  2. Modifying the model to include more convolution layers 
+-  3. Experimenenting with hyperparameters such as: adaptable learning rates, Dropout, and L2 regularization
+-  4. Develop an app for both IOS and Android: This will allow us to get users to submit the pictures of their skin lesions and will give our platform a continual stream of images to further train our model and refine it. Additionally, it will give the users a feedback whether they need to consult with a doctor or not.
+
 ## 3b) **Project Roadmap**
-Project "next steps" include ideas for future product improvements that further address the original business problem.
+Obviously, beyond the training and model tweaking we need to have an infrastructure that can support images at scale and that is responsive. To that end, we will be using Amazon Web Services (AWS) to develop this architecture. When a user takes a picture in their app of their skin lesion, this image will be saved on an S3 bucket which will trigger a an AWS Lambda action. Lambda will invoke our convolutional neural network (CNN) which will be available as an end point on AWS Sagemaker. Once the model runs and processes the images, the result will be stored in another S3 bucket that will trigger another lambda event, this time a message back to the user in their app, detailing whether they should seek medical attention with a degree of confidence.
+
+As we get more images and more training to our model, our degree of confidence will rise. Coupling the continuous training  with an evolving CNN and hyperparameter tuning, we believe that reaching a level of accuracy over 90% is certainly within reach. 
+
+There is no reason why 2 people in the US should die from skin cancer every hour. We have a simple yet a powerful vision: 
+**Snap a picture and potentially, save your life**.
