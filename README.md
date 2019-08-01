@@ -46,7 +46,7 @@ _ L2 Reguralization
 
 The best performing model was one of the CNNs we built with 11 convolution layers (You can checkout the rest of the models and their results in the Jupyter Notebook). We were able to achieve a 76% precision and recall. One of the challenges was the time it took to train the network, so we were forced to used half the training data (15000 images) in order to speed up the process.  
 
-![Confusion matrix for CNN Classifier](Figuresprecision_recall.png)
+![precision_recall](Figures/precision_recall.png)
 
 ![Confusion matrix for CNN Classifier](Figures/CM_Best_Model.png)
 
