@@ -1,6 +1,6 @@
 # Skin Cancer Screener
 
-![AC](Figures/app_cancer.jpeg)
+![main img](Figures/main_img.JPG)
 
 
 # 1. **Business Understanding**
@@ -51,9 +51,11 @@ Our best model performed at a precision and recall of 76%. That model has 11 con
 -  Develop an app for both IOS and Android: This will allow us to get users to submit the pictures of their skin lesions and will give our platform a continual stream of images to further train our model and refine it. Additionally, it will give the users a feedback whether they need to consult with a doctor or not.
 
 ## 3b) **Project Roadmap**
-Obviously, beyond the training and model tweaking we need to have an infrastructure that can support images at scale and that is responsive. To that end, we will be using Amazon Web Services (AWS) to develop this architecture. When a user takes a picture in their app of their skin lesion, this image will be saved on an S3 bucket which will trigger a an AWS Lambda action. Lambda will invoke our convolutional neural network (CNN) which will be available as an end point on AWS Sagemaker. Once the model runs and processes the images, the result will be stored in another S3 bucket that will trigger another lambda event, this time a message back to the user in their app, detailing whether they should seek medical attention with a degree of confidence.
+Obviously, beyond the training and model tweaking we need to have an infrastructure that can support images at scale and that is responsive. To that end, we will be using Amazon Web Services (AWS) to develop this architecture. When a user takes a picture in their app of their skin lesion, this image will be saved on an S3 bucket which will trigger a an AWS Lambda action. Lambda will invoke our convolutional neural network (CNN) which will be available as an end point on AWS Sagemaker. Once the model runs and processes the images, the result will be stored in another S3 bucket that will trigger another lambda event, this time a message back to the user in their app, detailing whether they should seek medical attention with a degree of confidence. Model predictions along with images file paths will and other relevant transactions will be saved in a Dynamo DB.
 
 As we get more images and more training to our model, our degree of confidence will rise. Coupling the continuous training  with an evolving CNN and hyperparameter tuning, we believe that reaching a level of accuracy over 90% is certainly within reach. 
 
 There is no reason why 2 people in the US should die from skin cancer every hour. We have a simple yet a powerful vision: 
 **Snap a picture and potentially, save your life**.
+
+![future_app](Figures/future_app.png)
