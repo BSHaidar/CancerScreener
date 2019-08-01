@@ -25,6 +25,17 @@ if we pick at random (1 out of 7 diagnostic categories) then we will be correct 
 ## 2a) **Public Data**
 [The HAM10000 dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T) is a large collection of multi-source dermatoscopic images of common pigmented skin lesions
 
+# Need Title
+
+![AC](Figures/AC.png)
+![BCC](Figures/BCC.png)
+![BK](Figures/BK.png)
+![DF](Figures/DF.png)
+![Mel](Figures/Mel.png)
+![Nevi](Figures/Nevi.png)
+![Vasc](Figures/Vasc.png)
+
+![Confusion matrix for CNN Classifier](Figures/CM_Best_Model.png)
 
 # 3. **Next Steps**
 ## 3a) **Model Improvement**
