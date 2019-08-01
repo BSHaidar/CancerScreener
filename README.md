@@ -1,5 +1,6 @@
 # Objective
 Develop a Skin Cancer Screener that can classify 7 diagnostic categories of skin lesions.  
+  
 ![main img](Figures/main_img.JPG)
 
 # Evaluation Criteria
