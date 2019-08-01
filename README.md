@@ -2,7 +2,7 @@
 Develop a Skin Cancer Screener that can classify 7 diagnostic categories of skin lesions.
 ![main img](Figures/main_img.JPG)
 
-# Success/Evaluation Criteria
+# Evaluation Criteria
 if we pick at random (1 out of 7 diagnostic categories) then we will be correct 14.28% of the time. If we have a model that can predict the diagnostic categories at a rate of 50% or better, then that model will perform at least 4 times better then random chance and that would be a relatively successful model.
 
 # Background
@@ -28,15 +28,13 @@ Skin cancer is the most common form of cancer in the United States with an annua
 
 More than 50% of lesions are confirmed through histopathology (histo), the ground truth for the rest of the cases is either follow-up examination (follow_up), expert consensus (consensus), or confirmation by in-vivo confocal microscopy (confocal). The dataset includes lesions with multiple images, which can be tracked by the lesion_id column within the HAM10000_metadatafile.
 
-![Confusion matrix for CNN Classifier](Figures/CM_Best_Model.png)
-
 # Process
 The image categories were completely unbalanced. Almost 50% of images pertained to one category, another 20% were distributed between 2 other categories, and the final 30% were spread in the remaining 4 categories. We tried to run our model using various class weights to remedy this imbalance in data but this strategy yielded poor results.
 
-Our dataset was broken down as follows: 64% training, 16% validation, 20% testing. We decided that we needd to augment our training data set. We created a function that would create various images from each of the under represented categories and manipulated like rotate, blurr, shear, etc. so we can balance the data set. Our training data set increased from over 6400 images to over 30000 images.
-
+Our dataset was broken down as follows: 64% training, 16% validation, 20% testing. We decided that we need to augment our training data set. We created a function that would create various images from each of the under represented categories and implemented image manipulations like rotate, blurr, shear, etc. to balance the data set. The training data set increased from 6400 images to over 30000 images.
 
 We built 3 Convolutional Neural Networks (CNN) and used transfer learning from 2 other pre-built models. Many iterations of each model and hyperparameter tuning were performed like:
+
 - Adding/removing layers
 - Batch Normalization
 - Droupout
@@ -45,8 +43,14 @@ _ L2 Reguralization
 - Dilation Rate
 - Learning Rate on Plateau
 - Optimizers: Stochastic Gradient Descent and ADAM
-# 3. **Next Steps**
-## 3a) **Model Improvement**
+
+The best performing model was one of the CNNs we built with 11 convolution layers (You can checkout the rest of the models and their results in the Jupyter Notebook). We were able to achieve a 76% precision and recall. One of the challenges was the time it took to train the network, so we were forced to used half the training data (15000 images) in order to speed up the process.  
+
+![Confusion matrix for CNN Classifier](Figuresprecision_recall.png)
+
+![Confusion matrix for CNN Classifier](Figures/CM_Best_Model.png)
+
+# Model Improvement
 Our best model performed at a precision and recall of 76%. That model has 11 convolutional layers. We believe that in order to make it perform better we need to implement the following:
 
 -  A lot more images for training
@@ -54,7 +58,7 @@ Our best model performed at a precision and recall of 76%. That model has 11 con
 -  Experimenenting with hyperparameters such as: adaptable learning rates, Dropout, and L2 regularization
 -  Develop an app for both IOS and Android: This will allow us to get users to submit the pictures of their skin lesions and will give our platform a continual stream of images to further train our model and refine it. Additionally, it will give the users a feedback whether they need to consult with a doctor or not.
 
-## 3b) **Project Roadmap**
+# Project Roadmap
 Obviously, beyond the training and model tweaking we need to have an infrastructure that can support images at scale and that is responsive. To that end, we will be using Amazon Web Services (AWS) to develop this architecture. When a user takes a picture in their app of their skin lesion, this image will be saved on an S3 bucket which will trigger a an AWS Lambda action. Lambda will invoke our convolutional neural network (CNN) which will be available as an end point on AWS Sagemaker. Once the model runs and processes the images, the result will be stored in another S3 bucket that will trigger another lambda event, this time a message back to the user in their app, detailing whether they should seek medical attention with a degree of confidence. Model predictions along with images file paths will and other relevant transactions will be saved in a Dynamo DB.
 
 As we get more images and more training to our model, our degree of confidence will rise. Coupling the continuous training  with an evolving CNN and hyperparameter tuning, we believe that reaching a level of accuracy over 90% is certainly within reach. 
