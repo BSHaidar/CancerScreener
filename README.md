@@ -39,7 +39,7 @@ We built 3 Convolutional Neural Networks (CNN) and used transfer learning from 2
 - Adding/removing layers
 - Batch Normalization
 - Droupout
-_ L2 Regularization
+- L2 Regularization
 - Learning Rate
 - Dilation Rate
 - Learning Rate on Plateau
