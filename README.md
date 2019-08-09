@@ -9,7 +9,7 @@ If we pick at random (1 out of 7 diagnostic categories), then we will be correct
 # Background
 Skin cancer is the most common form of cancer in the United States with an annual cost of care exceeding $8 billion. With early detection, the 5 year survival rate of the most deadly form, melanoma, can be up to 99%; however, delayed diagnosis causes the survival rate to plummet to 23%.  
 
-[The HAM10000 dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T) iis an extensive collection of multi-source dermatoscopic images of common pigmented skin lesions. The dataset consists of 10015 dermatoscopic images. This collection of images represent about 95% of the seven diagnostic categories in the realm of pigmented lesions, as seen in clinical settings:  
+[The HAM10000 dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T) is an extensive collection of multi-source dermatoscopic images of common pigmented skin lesions. The dataset consists of 10015 dermatoscopic images. This collection of images represent about 95% of the seven diagnostic categories in the realm of pigmented lesions, as seen in clinical settings:  
 
 1. Actinic Keratoses and intraepithelial carcinoma / Bowen's disease (akiec)
 2. Basal Cell Carcinoma (bcc)
